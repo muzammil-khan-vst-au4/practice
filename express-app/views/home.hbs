@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Salary</th>
+        </tr>           
+    </thead>
+    <tbody>
+            {{#each users}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.country}}</td>
+                    <td>{{this.salary}}</td>
+                </tr>
+            {{/each}}
+    </tbody>
+        
+</table>
