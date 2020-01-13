@@ -6,21 +6,19 @@ function anagram(str1, str2) {
         return false
     }
     let frequecyCounter1 = {};
-    let frequecyCounter2 = {};
     for(let char of str1){
         frequecyCounter1[char] = (frequecyCounter1[char] || 0) +1;
     }
-    for(let char of str2){
-        frequecyCounter2[char] = (frequecyCounter2[char] || 0) +1;
-    }
     console.log(frequecyCounter1);
-    console.log(frequecyCounter2);
-    for(let key in frequecyCounter1) {
-        if(!(key in frequecyCounter2)){
+    for(let char of str2) {
+        console.log(char)
+        if(frequecyCounter1[char]) {
+            frequecyCounter1[char] -= 1 
+        }else {
             return false
         }
     }
     return true;
 }
 
-console.log(anagram('anagram', 'nagarhm'));
+console.log(anagram('anagram', 'nagaram'));
