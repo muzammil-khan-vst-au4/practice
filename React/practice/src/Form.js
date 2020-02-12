@@ -4,11 +4,11 @@ class Form extends Component {
     constructor(props) {
         super(props)
 
-        this.intialState = {
+        this.initialState = {
             name : "",
             job : ""
         }
-        this.state = this.intialState
+        this.state = this.initialState
     }
     handleChange = event => {
         const {name, value} = event.target
@@ -20,7 +20,7 @@ class Form extends Component {
         event.preventDefault();
         
         this.props.handleSubmit(this.state);
-        this.setState(this.initialState);
+        this.setState(this.initialState);   //setting the state to initial state to reset input in form
     }
     render() {
         const {name, job} = this.state
