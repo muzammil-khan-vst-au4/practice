@@ -1,4 +1,4 @@
-/* import React, {Component} from 'react'
+ import React, {Component} from 'react'
 
 class Form extends Component {
     constructor(props) {
@@ -16,11 +16,6 @@ class Form extends Component {
             [name]: value
         })
     }
-    submitForm = (event) => {
-        event.preventDefault()
-        this.props.handleSubmit(this.state)
-        this.setState(this.intialState)
-    }
     onFormSubmit = (event) => {
         event.preventDefault();
         
@@ -30,7 +25,7 @@ class Form extends Component {
     render() {
         const {name, job} = this.state
         return (
-            <form>
+            <form onSubmit={this.onFormSubmit}>
                 <label htmlFor="name">Name</label>
                 <input
                     type="text"
@@ -45,68 +40,10 @@ class Form extends Component {
                     id="job"
                     value={job}
                     onChange={this.handleChange} />
-                <input type="button" value="Submit" onSubmit={this.onFormSubmit}/>    
+                <button>Submit</button>    
             </form>
         )
     }
 }
 
-export default Form */
-
-import React, {Component} from 'react';
-
-class Form extends Component {
-    constructor(props) {
-        super(props);
-        
-        this.initialState = {
-            name: '',
-            job: ''
-        };
-
-        this.state = this.initialState;
-    }
-
-    handleChange = event => {
-        const { name, value } = event.target;
-
-        this.setState({
-            [name] : value
-        });
-    }
-
-    onFormSubmit = (event) => {
-        event.preventDefault();
-        
-        this.props.handleSubmit(this.state);
-        this.setState(this.initialState);
-    }
-
-    render() {
-        const { name, job } = this.state; 
-
-        return (
-            <form onSubmit={this.onFormSubmit}>
-                <label for="name">Name</label>
-                <input 
-                    type="text" 
-                    name="name" 
-                    id="name"
-                    value={name} 
-                    onChange={this.handleChange} />
-                <label for="job">Job</label>
-                <input 
-                    type="text" 
-                    name="job" 
-                    id="job"
-                    value={job} 
-                    onChange={this.handleChange} />
-                <button type="submit">
-                    Submit
-                </button>
-            </form>
-        );
-    }
-}
-
-export default Form;
+export default Form
